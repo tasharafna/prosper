@@ -24,7 +24,7 @@ theme_set(theme_gray(base_size = 18))
 
 #################### 1. DATA LOAD AND TYPE MANAGEMENT ##########################
 
-location = '/data'
+location = '~/prosper/data'
 setwd(location)
 
 chosen_columns = c('ListingKey', 'LoanStatus','Term','ProsperScore','EmploymentStatus',
