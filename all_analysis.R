@@ -24,7 +24,7 @@ theme_set(theme_gray(base_size = 18))
 
 #################### 1. DATA LOAD AND TYPE MANAGEMENT ##########################
 
-location = '/Users/nicholasculver/repos/Udacity/R/final'
+location = '/data'
 setwd(location)
 
 chosen_columns = c('ListingKey', 'LoanStatus','Term','ProsperScore','EmploymentStatus',
@@ -34,7 +34,7 @@ chosen_columns = c('ListingKey', 'LoanStatus','Term','ProsperScore','EmploymentS
                    'CurrentCreditLines','IncomeRange','StatedMonthlyIncome',
                    'DebtToIncomeRatio','LoanMonthsSinceOrigination')
 
-# Bring in data and brose columns
+# Bring in data and browse columns
 core <- fread('prosper.csv',stringsAs = FALSE, data.table=TRUE,
               select=chosen_columns)
 
