@@ -3,9 +3,8 @@ library(data.table)
 library(dplyr)
 library(caret)
 library(boot)
-library(glmnet) #glmnet
-library(klaR) # Naive bayes
-library(kernlab) # SVM
+library(glmnet) 
+library(klaR) 
 library(randomForest)
 library(ROCR)
 
@@ -317,10 +316,6 @@ set.seed(42)
 rf_fit <- train(Default ~ ., data=main,
                 method='rf', metric=metric, trControl=trControl, ntree=100,
                 nodesize=30, cutoff=c(0.55,0.45)) 
-set.seed(42)
-svm_fit <- train(Default ~ ., data=main,
-                 method='svmRadial', metric=metric, trControl=trControl, 
-                 class.weights=c('Yes'=2, 'No'=1))
 
 # Summarize models
 collection <- resamples(list(LDA=lda_fit,KNN=knn_fit, NB=nb_fit, GLMNET=glm_fit, RF=rf_fit))
@@ -330,10 +325,6 @@ dotplot(collection)
 # RF test set
 rf_test_preds <- predict(rf_fit, test)
 confusionMatrix(rf_test_preds, test$Default, positive='Yes')
-
-# SVM  on test set
-svm_test_preds <- predict(svm_fit3, test)
-confusionMatrix(svm_test_preds, test$Default, positive='Yes')
 
 # Try oversampling the small class - downsample with random forest
 nmin <- sum(main$Default == 'Yes')
