@@ -26,6 +26,7 @@ theme_set(theme_gray(base_size = 18))
 location = '~/prosper/data'
 setwd(location)
 
+
 chosen_columns = c('ListingKey', 'LoanStatus','Term','ProsperScore','EmploymentStatus',
                    'CreditScoreRangeLower','MonthlyLoanPayment',
                    'BorrowerRate','BorrowerAPR','LoanOriginalAmount','EstimatedLoss',
@@ -114,7 +115,6 @@ ggplot(data=core,
 ggplot(data=core,
        aes(x=ProsperScore)) +
   geom_bar()
-NA_counts['ProsperScore']
 
 # Critical column here
 ggplot(data=core,
@@ -126,7 +126,6 @@ ggplot(data=core,
        aes(x=TotalCreditLinespast7years)) +
   geom_histogram(binwidth=1)
 table(core$TotalCreditLinespast7years)
-NA_counts['TotalCreditLinespast7years']
 
 # There are five major income tiers - others can be dropped
 ggplot(data=core,
