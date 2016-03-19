@@ -6,7 +6,7 @@ library(boot)
 library(glmnet) 
 library(klaR) 
 library(randomForest)
-library(ROCR)
+library(pROC)
 
 # Set theme
 theme_set(theme_gray(base_size = 18))
